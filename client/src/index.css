@@ -1,0 +1,99 @@
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Calibri',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+.circle {
+  width: 15vw;
+  height: 15vw;
+  margin-top: -13vw;
+  margin-left: 17vw;
+  -webkit-border-radius: 18vw;
+  background: #5713E8;
+}
+
+.circle2 {
+  width: 15vw;
+  height: 15vw;
+  -webkit-border-radius: 18vw;
+  margin-left: -14vw;
+  margin-top: 30vw;
+  background: #5713E8;
+}
+
+
+p {
+  margin-top: 2vw;
+  margin-left: 12vw;
+  color: #5713E8;
+  font-family: 'Roboto', sans-serif;
+  font-size: 4vw;
+
+}
+
+span {
+  display: block;
+  margin-left: 2vw;
+  font-size: 3vw;
+}
+
+img {
+  width: 12vw;
+  margin-left: -12vw;
+  margin-top: -5vw;
+}
+
+
+.student {
+  width: 100%;
+  margin-left: 2vw;
+  height: auto;
+}
+
+.select {
+  font-size: 3vw;
+  margin-left: 0vw;
+
+}
+
+.category {
+  background-color: #5713E8;
+  color: #FFFFFF;
+  font-size: 2vw;
+  padding-top: 0.5vw;
+  padding-left: 1vw;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 12vw;
+}
+
+.purpleball {
+  margin-left: 90vw;
+}
+
+.greenball {
+  margin-top: 2vw;
+  margin-left: 80vw;
+
+}
+
+.pinkball {
+  margin-left: 70vw;
+  margin-top: -5vw;
+}

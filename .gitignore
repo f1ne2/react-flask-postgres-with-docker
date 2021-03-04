@@ -1,0 +1,44 @@
+/backend/venv/*
+/backend/__pycache__/*
+/backend/migrations/__pycache__/*
+/backend/app/__pycache__/*
+/backend/.idea/*
+/backend/tests/test_models.db
+/backend/app/api/__pycache__/*
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/client/node_modules
+/client/.pnp
+/client/.pnp.js
+
+# testing
+/client/coverage
+
+# production
+/client/build
+
+# misc
+/client/.DS_Store
+/client/.env.local
+/client/.env.development.local
+/client/.env.test.local
+/client/.env.production.local
+
+/client/npm-debug.log*
+/client/yarn-debug.log*
+/client/yarn-error.log*
+/client//src/img/android.png
+/client/src/img/frontend.png
+/client/src/img/graphdesign.png
+/client/src/img/infosafe.png
+/client/src/img/itmarketing.png
+/client/src/img/java.png
+/client/src/img/neuro.png
+/client/src/img/test.png
+/client/src/img/transparent.png
+/client/src/img/web.png
+/client/public/logo512.png
+/client/public/logo192.png
+/client/.idea/*
