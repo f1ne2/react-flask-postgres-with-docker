@@ -34,3 +34,4 @@ yarn-error.log*
 /public/logo512.png
 /public/logo192.png
 ../.idea/*
+.npmignore

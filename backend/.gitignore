@@ -5,3 +5,6 @@
 /.idea/*
 /tests/test_models.db
 /app/api/__pycache__/*
+config.pyс
+quiz.pyc
+/app/__init__.pyc

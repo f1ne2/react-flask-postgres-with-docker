@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+
+  db:
+    image:  postgres:13.2
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: quiz
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: SNekH2233
+    volumes:
+      - "/usr/src/app"
+  flask:
+    container_name: backend
+    restart: always
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - "db"
+  client:
+    container_name: react-app
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+    - "./client:/usr/src/app/"
+    - "/usr/src/app/node_modules"
+    ports:
+    - "3000:3000"
+    depends_on:
+      - "flask"

@@ -12,7 +12,7 @@ export default class Ccomponent extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:5000/categories/")
+        fetch("http://0.0.0.0:5000/categories/")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -28,7 +28,7 @@ export default class Ccomponent extends Component {
                     });
                 }
             )
-        fetch("http://localhost:5000/category/29", {
+        fetch("http://0.0.0.0:5000/category/29", {
             method: 'delete'})
             .then((response) => {
                 return response.json();
@@ -40,7 +40,7 @@ export default class Ccomponent extends Component {
                 console.log(error)
             })
         let data = {data: "New"};
-        fetch("http://localhost:5000/category/", {
+        fetch("http://0.0.0.0:5000/category/", {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -54,7 +54,7 @@ export default class Ccomponent extends Component {
             });
         let put = {data: "Old"};
         let id = 30
-        fetch("http://localhost:5000/category/"+ id, {
+        fetch("http://0.0.0.0:5000/category/"+ id, {
             method: 'put',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
