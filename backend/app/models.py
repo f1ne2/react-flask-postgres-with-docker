@@ -25,7 +25,7 @@ class Categories(db.Model):
 
     @staticmethod
     def delete_note(category_id: int) -> None:
-        delete = db.session.query(Categories).filter_by\
+        delete = db.session.query(Categories).filter_by \
             (category_id=category_id).one()
         db.session.delete(delete)
         db.session.commit()
@@ -58,6 +58,40 @@ class Questions(db.Model):
     def __eq__(self, other):
         return self.question == other.question and self.category_id == \
                other.category_id and self.question_id == other.question_id
+
+    @staticmethod
+    def add(question_dict: dict) -> None:
+        question = Questions(question=question_dict["data"])
+        print(question)
+        db.session.add(question)
+        db.session.commit()
+
+    @staticmethod
+    def to_json(dictionary: dict) -> dict:
+        res = {"questions": []}
+        res2 = {"questions": [res["questions"].append({"id": k, "name": v})
+                              for k, v in dictionary.items()]}
+        return res
+
+    @staticmethod
+    def get_questions() -> List[list]:
+        questions = db.session.query(Questions).all()
+        return [[item.question_id, item.question] for item in
+                questions]
+
+    @staticmethod
+    def delete_note(question_id: int) -> None:
+        delete = db.session.query(Questions).filter_by \
+            (question_id=question_id).one()
+        db.session.delete(delete)
+        db.session.commit()
+
+    @staticmethod
+    def edit(question: dict, id: int) -> None:
+        print(question)
+        Questions.query.filter_by(question_id=id).update \
+            (dict(question=question["data"]))
+        db.session.commit()
 
 
 class Answers(db.Model):

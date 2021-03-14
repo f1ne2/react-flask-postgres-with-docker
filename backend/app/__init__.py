@@ -10,6 +10,8 @@ migrate = Migrate(app, db)
 
 from app import models
 from app.api import category_api
+from app.api import users_api
+from app.api import questions_api
 
 db.create_all()
 
