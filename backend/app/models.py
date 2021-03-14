@@ -2,6 +2,13 @@ from app import db
 from typing import List
 
 
+class Users(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    password = db.Column(db.String(80))
+    admin = db.Column(db.Boolean)
+
+
 class Categories(db.Model):
     category_id = db.Column(db.Integer, primary_key=True)
     category_name = db.Column(db.String(64), nullable=False, unique=True)

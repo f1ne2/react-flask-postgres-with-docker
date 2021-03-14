@@ -2,6 +2,7 @@ from app import app
 from typing import Dict, List
 from flask import jsonify, wrappers, request
 from app.models import Categories
+from app.api.users_api import token_required
 
 
 @app.route('/categories/', methods=['GET'])
@@ -17,6 +18,7 @@ def get_category(id: int) -> Dict[str, List[Dict[str, str]]]:
 
 
 @app.route('/category/', methods=['POST'])
+@token_required
 def add_category() -> wrappers.Response:
     category = request.get_json()
     print(category)
@@ -28,6 +30,7 @@ def add_category() -> wrappers.Response:
 
 
 @app.route('/category/<int:id>', methods=['DELETE'])
+@token_required
 def delete_category(id: int) -> wrappers.Response:
     Categories.query.get_or_404(id)
     Categories.delete_note(id)
@@ -35,6 +38,7 @@ def delete_category(id: int) -> wrappers.Response:
 
 
 @app.route('/category/<int:id>', methods=['PUT'])
+@token_required
 def edit_category(id: int) -> wrappers.Response:
     Categories.query.get_or_404(id)
     try:
