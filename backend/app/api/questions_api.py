@@ -10,6 +10,19 @@ def questions() -> Dict[str, List[Dict[str, str]]]:
     return Questions.to_json(dict(Questions.get_questions()))
 
 
+@app.route('/question/<int:id>', methods=['GET'])
+def get_question(id: int) -> Dict[str, List[Dict[str, str]]]:
+    question = Questions.query.get_or_404(id)
+    output = []
+    question_data = {}
+    question_data['id'] = question.question_id
+    question_data['question'] = question.question
+    question_data['category'] = question.category_id
+    output.append(question_data)
+
+    return jsonify({'question': output})
+
+
 @app.route('/question', methods=['POST'])
 @token_required
 def add_question() -> wrappers.Response:
@@ -42,3 +55,17 @@ def edit_question(id: int) -> wrappers.Response:
         return jsonify({"200 OK": "HTTP/1.1"})
     except:
         return jsonify({"403 Forbidden": "HTTP/1.1"})
+
+
+@app.route('/category/<int:id>/questions', methods=['GET'])
+@token_required
+def get_category_questions(id: int) -> wrappers.Response:
+    category_questions = Questions.query.filter_by(category_id=id).all()
+    output = []
+    for question in category_questions:
+        question_data = {}
+        question_data['id'] = question.question_id
+        question_data['question'] = question.question
+        question_data['category'] = question.category_id
+        output.append(question_data)
+    return jsonify({'question': output})

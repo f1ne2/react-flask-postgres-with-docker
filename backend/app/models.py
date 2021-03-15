@@ -61,7 +61,7 @@ class Questions(db.Model):
 
     @staticmethod
     def add(question_dict: dict) -> None:
-        question = Questions(question=question_dict["data"])
+        question = Questions(question=question_dict["data"], category_id=question_dict["category_id"])
         print(question)
         db.session.add(question)
         db.session.commit()
@@ -90,9 +90,8 @@ class Questions(db.Model):
     def edit(question: dict, id: int) -> None:
         print(question)
         Questions.query.filter_by(question_id=id).update \
-            (dict(question=question["data"]))
+            (dict(question=question["data"], category_id=question["category_id"]))
         db.session.commit()
-
 
 class Answers(db.Model):
     question_id = db.Column(db.Integer, db.ForeignKey('questions.question_id'))
